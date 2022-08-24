@@ -60,6 +60,9 @@ const FoodListSmall = () => {
             })
         )
     } 
+
+    const incrementCartItem = () => {}
+    const decrementCartItem = () => {}
     return (
         <>
         <div className='food-list'>
@@ -128,13 +131,13 @@ const FoodListSmall = () => {
                 <p className="food-desc">{value.description}</p>
                 <div className="price-cont">
                     <p className='food-price'>{`Rp.${value.price}`}</p>
-                    <button className='add-btn-sm' onClick={() => addToCart(index)} >Add Item</button>
+                    {itemsList && <button className='add-btn-sm' onClick={() => addToCart(index)} >Add Item</button>}
                 </div>
             </div>
             </div>
         ))}
+         {total && <Cart total={total}/>}
         </div>
-        {total && <Cart total={total}/>}
     </>
   )
 }

@@ -6,6 +6,8 @@
   flex-direction: column;
   height: max-content;
   overflow: scroll;
+  max-width: 360px;
+  margin: 0 auto;
 }
 .greet {
   font-weight: 400;

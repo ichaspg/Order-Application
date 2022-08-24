@@ -1,7 +1,6 @@
 import React from 'react'
 import BackIcon from '../../assets/bx-arrow-back.svg'
 import './checkout.css'
-import img1 from '../../assets/1.png'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartActions } from '../../store/cartSlice'
@@ -13,7 +12,7 @@ const Checkout = () => {
     let subtotal = 0;
     const cartItems = useSelector((state) => state.cart.itemsList)
     cartItems.forEach((item) => {
-        subtotal += item.totalPrice;
+        item ? subtotal += item.totalPrice : subtotal -= item.totalPrice;
     });
     const dispatch = useDispatch()
     const handleClick = () => {
@@ -45,6 +44,7 @@ const Checkout = () => {
                     <p className="summ-ttl">Order Summary</p>
                         {cartItems.map((item,index) =>(
                             <div className="order-list" key={item.id}>
+                            {" "}
                                 <div className="order-desc">
                                     <img src={item.image} alt="" className='order-pic'/>
                                         <div className="order-detail">
@@ -52,11 +52,12 @@ const Checkout = () => {
                                             <p className="prod-price">Rp.{item.totalPrice}</p>
                                         </div>
                                 </div>
-                        <div className="quantity">
-                            <button className='quant-btn' onClick={()=>incrementCartItem(index)}>+</button>
-                            <p className='order-quant'>{item.quantity}</p>
-                            <button className='quant-btn' onClick={() => decrementCartItem(index)} >-</button>
-                        </div> 
+                                <div className="quantity">
+                                    <button className='quant-btn' onClick={()=>incrementCartItem(index)}>+</button>
+                                    <p className='order-quant'>{item.quantity}</p>
+                                    <button className='quant-btn' onClick={() => decrementCartItem(index)} >-</button>
+                                </div> 
+                            {" "}
                             </div>
                         ))}
                 </div>
