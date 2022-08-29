@@ -1,7 +1,11 @@
+.carousel-cont {
+  margin: 0;
+}
 .item {
   max-height: 168px;
   min-width: 344px;
-  padding: 10px;
+  padding: 0px;
+  margin: 10px;
 }
 
 .item img {

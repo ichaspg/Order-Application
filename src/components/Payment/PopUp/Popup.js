@@ -4,8 +4,27 @@ import gopay from '../../../assets/gopay.png'
 import qris from '../../../assets/qris.png'
 import cash from '../../../assets/cash.png'
 import qr from '../../../assets/qrcode.png'
+import { useSelector } from 'react-redux'
+import axios from 'axios'
+
 
 const Popup = (props) => {
+  const cartItems = useSelector((state) => state.cart.itemsList)
+  const userData = JSON.parse(localStorage.getItem('user'))
+  console.log(cartItems)
+  const handleSubmit = (e) => {
+    axios.post('http://localhost:8000/order',{
+      userId: 1,
+      userName:userData.name,
+      tablenumber:userData.tablenumber,
+      method:'bca',
+      order:cartItems
+    }).then((response) => {
+      console.log(response.status)
+      console.log(response.data)
+    })
+  }
+  console.log(cartItems)
   switch (props.value) {
     case 0: //Cancel
       return (
@@ -24,7 +43,7 @@ const Popup = (props) => {
             </p>
             <div className="button-cont">
               <button className='cancel-btn' onClick={() => props.handlecancel(0)}>Cancel</button>
-              <button className='done-btn'>Done</button>
+              <button className='done-btn' onClick={() => handleSubmit()}>Done</button>
             </div>
           </div>
         </div>

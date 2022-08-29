@@ -5,20 +5,16 @@ import './menu.css'
 
 const Menu = () => {
   //=======Ambil User Dari Local Storage ==========================
-  const [user,setUser] = useState({})
-  useEffect(()=>{
-    const user = JSON.parse(localStorage.getItem('user'))
-    if (user) {
-      setUser(user)
-    }
-  },[])
+  const user = JSON.parse(localStorage.getItem('user'))
   //=================================================================
   return (
+    <>
     <div className='Main'>
       <p className='greet'>Hello {user.name}</p>
       <p className='title'>Find your Food</p>
       <FoodListSmall/>
     </div>
+    </>
   )
 }
 

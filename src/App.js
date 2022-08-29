@@ -5,6 +5,8 @@ import Menu from './components/Menu/MainMenu/Menu';
 import FoodDetails from './components/Menu/Foods/FoodDetails/FoodDetails';
 import Checkout from './components/Checkout/Checkout';
 import Payment from './components/Payment/Payment';
+import AdminLogin from './components/Cashier/Login/AdminLogin';
+import Home from './components/Cashier/Home/Home';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Route path='/foods/:id' element={<FoodDetails/>} />
       <Route path='/checkout' element={<Checkout/>} />
       <Route path='/payment' element={<Payment />} />
+      <Route path='/adminlogin' element={<AdminLogin/>}/>
+      <Route path='/cashier' element={<Home />}/>
     </Routes>
   );
 }

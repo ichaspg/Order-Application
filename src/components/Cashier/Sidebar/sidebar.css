@@ -1,0 +1,40 @@
+.sidebar-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+  overflow: hidden;
+  left: 0;
+  z-index: -1;
+  margin: 0;
+}
+
+.cashier-logo {
+  margin: 15px;
+}
+
+.menu-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu-cont a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.menu-name {
+  margin-top: 0;
+}
+
+.logout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

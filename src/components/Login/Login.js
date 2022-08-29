@@ -38,6 +38,7 @@ const Login = () => {
                     value={name}
                     placeholder='Name'
                     className='input-txt'
+                    required
                     onChange={(e) => setName(e.target.value)}
                     />
                     <input 
@@ -45,6 +46,7 @@ const Login = () => {
                     value={email}
                     placeholder='Email'
                     className='input-txt'
+                    required
                     onChange={(e) => setEmail(e.target.value)}
                     />
                     <input 
@@ -52,6 +54,7 @@ const Login = () => {
                     value={tablenumber}
                     placeholder='Table Number'
                     className='input-txt'
+                    required
                     onChange={(e) => setTableNumber(e.target.value)}
                     />
                     <input type="submit" className='submit-btn' value={'Start Ordering'} />

@@ -61,8 +61,6 @@ const FoodListSmall = () => {
         )
     } 
 
-    const incrementCartItem = () => {}
-    const decrementCartItem = () => {}
     return (
         <>
         <div className='food-list'>
@@ -136,8 +134,8 @@ const FoodListSmall = () => {
             </div>
             </div>
         ))}
-         {total && <Cart total={total}/>}
         </div>
+        {total && <Cart total={total}/>} 
     </>
   )
 }
