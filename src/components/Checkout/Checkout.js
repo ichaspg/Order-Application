@@ -42,6 +42,7 @@ const Checkout = () => {
             </div>
                 <div className="summ-cont">
                     <p className="summ-ttl">Order Summary</p>
+                    <div className="order-cont">
                         {cartItems.map((item,index) =>(
                             <div className="order-list" key={item.id}>
                             {" "}
@@ -60,6 +61,7 @@ const Checkout = () => {
                             {" "}
                             </div>
                         ))}
+                    </div>
                 </div>
             <div className="price-detail">
                 <div className="subtotal-cont">

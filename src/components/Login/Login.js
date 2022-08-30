@@ -15,14 +15,12 @@ const Login = () => {
 
     //=================Submit (POST ke API & Local Storage) ========================
     const handleSubmit = (event) => {
-        event.preventDefault();
         const userData = {name,email,tablenumber,method,order}
         axios.post('http://localhost:8000/user',userData).then((response) => {
           localStorage.setItem('user', JSON.stringify(userData))
           console.log(response.status)
           console.log(response.data)
         })
-        alert('Submitted')
         navigate('/menu')
     }
     //============================================================================

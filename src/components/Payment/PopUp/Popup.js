@@ -11,20 +11,25 @@ import axios from 'axios'
 const Popup = (props) => {
   const cartItems = useSelector((state) => state.cart.itemsList)
   const userData = JSON.parse(localStorage.getItem('user'))
-  console.log(cartItems)
+  let subtotal = 0;
+  cartItems.forEach((item) => {
+    item ? subtotal += item.totalPrice : subtotal -= item.totalPrice;
+  });
+  const total = subtotal + (subtotal * 0.1)
   const handleSubmit = (e) => {
     axios.post('http://localhost:8000/order',{
       userId: 1,
       userName:userData.name,
       tablenumber:userData.tablenumber,
       method:'bca',
-      order:cartItems
+      order:cartItems,
+      subtotal:subtotal,
+      total:total
     }).then((response) => {
       console.log(response.status)
       console.log(response.data)
     })
   }
-  console.log(cartItems)
   switch (props.value) {
     case 0: //Cancel
       return (

@@ -50,7 +50,6 @@ const FoodListSmall = () => {
     });
     const dispatch = useDispatch();
     const addToCart = (i) => {
-        console.log(i)
         dispatch(
             cartActions.addToCart({
                 name :data[i].name,

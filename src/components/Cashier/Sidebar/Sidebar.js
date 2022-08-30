@@ -13,11 +13,11 @@ const Sidebar = () => {
     <div className='sidebar-cont'>
       <img src={logo} alt="" className='cashier-logo'/>
         <div className="menu-cont">
-          <Link to={'/'}>
+          <Link to='/order'>
             <img src={order} alt="" className='menu-icon'/>
             <p className="menu-name">Order</p>
           </Link>
-          <Link to={'/'}>
+          <Link to='/cashier'>
             <img src={cashier} alt="" className='menu-icon'/>
             <p className="menu-name">Cashier</p>
           </Link>

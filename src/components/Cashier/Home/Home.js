@@ -6,7 +6,7 @@ import './home.css'
 const Home = () => {
   const {data : order,isLoading,error} = useFetch('http://localhost:8000/order')
   const [selectedOrder,setSelectedOrder] = useState()
-  console.log(selectedOrder)
+  console.log(order.subtotal)
   const handleClick = (i) => {
     setSelectedOrder(order[i])
   }
@@ -14,7 +14,7 @@ const Home = () => {
     <>
       <Sidebar/>
       <div className="home-cont">
-          <div className="order-list">
+          <div className="order-list-admin">
           <h1 className='home-ttl'>Order List</h1>
           {order.map((item,index) => (
             <div className="order-card" key={item.id} onClick={()=> handleClick(index)}>
@@ -42,12 +42,27 @@ const Home = () => {
                 <div className="order-detail-list" key={item.id}>
                   <img src={item.image} alt="" className='order-img'/>
                   <div className="product-detail">
-                    <p className="item-name">{item.name}</p>
-                    <p className="item-price">{item.totalPrice}</p>
+                    <p className="item-name">{item.name} <span>x{item.quantity}</span></p>
+                    <p className="item-price">Rp.{item.totalPrice}</p>
                   </div>
-                  <p className="item-quantity">Qty : {item.quantity}</p>
                 </div>
               ))}
+              <button className='check-btn'>Check Payment</button>
+              <div className="price-detail-cashier">
+                <div className="subtotal-detail">
+                  <p>Subtotal</p>
+                  <p>Rp.{selectedOrder.subtotal}</p>
+                </div>
+                <div className="tax-detail">
+                  <p>Tax (10%)</p>
+                  <p>Rp.{selectedOrder.subtotal * 0.1}</p>
+                </div>
+                <div className="total-detail">
+                  <p>Total</p>
+                  <p>Rp.{selectedOrder.total}</p>
+                </div>
+              </div>
+              <button className='complete-btn'>Complete Transaction</button>
             </div>
             }
           </div>

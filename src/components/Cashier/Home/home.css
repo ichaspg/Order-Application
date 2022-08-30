@@ -4,14 +4,17 @@ body {
 .home-cont {
   background-color: #dee3df;
   margin-left: 120px;
-  overflow: scroll;
   display: flex;
+  overflow: hidden;
+  justify-content: space-between;
 }
 
-.order-list {
+.order-list-admin {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .order-card {
@@ -21,7 +24,7 @@ body {
   align-items: center;
   padding: 10px 32px;
   gap: 10px;
-  width: 574px;
+  width: 530px;
   height: 120px;
   background: #ffffff;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
@@ -67,21 +70,108 @@ body {
 
 .detail-cont {
   background-color: white;
-  position: absolute;
-  right: 0;
-  width: 416px;
-  height: 834px;
-  padding: 40px 26px;
+  min-width: 416px;
+  padding: 40px 20px;
 }
 
 .detail-header {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
+.order-detail-list {
+  display: flex;
+  align-items: center;
+}
+
+.product-detail {
+  margin: 0 20px;
+}
+
+.product-detail,
+p {
+  margin: 0;
+}
+
+.product-detail span {
+  font-weight: bold;
+}
 .order-img {
   width: 80px;
   height: 80px;
-
   border-radius: 10px;
+  margin: 10px 10px 10px 0;
+}
+
+.check-btn {
+  width: 384px;
+  height: 48px;
+  background: #dee3df;
+  border: 1px solid #5a7360;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #5a7360;
+  margin: 10px 0;
+}
+
+.price-detail-cashier {
+  padding: 10px;
+  width: 364px;
+  background: #dee3df;
+  border-radius: 20px;
+  gap: 10px;
+  margin: 15px 0;
+}
+.subtotal-detail {
+  display: flex;
+  justify-content: space-between;
+}
+.subtotal-detail p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 5px 5px;
+}
+
+.tax-detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tax-detail p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 5px 5px;
+}
+
+.total-detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-detail p {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 5px 5px;
+}
+
+.complete-btn {
+  padding: 12px 32px;
+  gap: 10px;
+  background: #5a7360;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+  width: 384px;
+  height: 48px;
+  margin: 20px 0;
 }

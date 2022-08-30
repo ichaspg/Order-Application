@@ -3,6 +3,8 @@
   flex-direction: column;
   background: #f7f8fa;
   height: 100vh;
+  max-width: 360px;
+  margin: 0 auto;
 }
 
 .payment-head {

@@ -10,6 +10,8 @@ body {
   flex-direction: column;
   justify-items: center;
   align-items: center;
+  max-width: 360px;
+  margin: 0 auto;
 }
 
 .landing-logo {
@@ -20,6 +22,7 @@ body {
   font-size: 22px;
   font-weight: 500;
   color: #758170;
+  margin-top: 15px;
 }
 
 .landing-btn {
