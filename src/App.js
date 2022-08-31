@@ -8,6 +8,7 @@ import Payment from './components/Payment/Payment';
 import AdminLogin from './components/Cashier/Login/AdminLogin';
 import Home from './components/Cashier/Home/Home';
 import Cashier from './components/Cashier/Cashier/Cashier';
+import Product from './components/Cashier/Product Page/Product';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path='/adminlogin' element={<AdminLogin/>}/>
       <Route path='/order' element={<Home />}/>
       <Route path='/cashier' element={<Cashier/>}/>
+      <Route path='/product' element={<Product/>}/>
     </Routes>
   );
 }

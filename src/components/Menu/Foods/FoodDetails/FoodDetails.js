@@ -13,7 +13,7 @@ const FoodDetails = () => {
         navigate(-1)
     }
     const {data:food,error,isPending} = useFetch('http://localhost:8000/foods/' + id)
-
+    console.log(id)
     //=======REDUX========================
     const dispatch = useDispatch();
     const checkOut = () => {

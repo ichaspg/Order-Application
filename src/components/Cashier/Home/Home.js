@@ -6,7 +6,6 @@ import './home.css'
 const Home = () => {
   const {data : order,isLoading,error} = useFetch('http://localhost:8000/order')
   const [selectedOrder,setSelectedOrder] = useState()
-  console.log(order.subtotal)
   const handleClick = (i) => {
     setSelectedOrder(order[i])
   }
@@ -16,37 +15,41 @@ const Home = () => {
       <div className="home-cont">
           <div className="order-list-admin">
           <h1 className='home-ttl'>Order List</h1>
-          {order.map((item,index) => (
-            <div className="order-card" key={item.id} onClick={()=> handleClick(index)}>
-              <p className="order-table">Table {item.tablenumber}</p>
-              <div className="order-detail">
-                <p className="order-receiver">Recepient : {item.userName}</p>
-                <p className="order-id">Order ID : {item.id}</p>
+            <div className="order-card-list">
+            {order.map((item,index) => (
+              <div className="order-card" key={item.id} onClick={()=> handleClick(index)}>
+                <p className="order-table">Table {item.tablenumber}</p>
+                <div className="order-detail">
+                  <p className="order-receiver">Recepient : {item.userName}</p>
+                  <p className="order-id">Order ID : {item.id}</p>
+                </div>
+                <p className="order-status">Preparing</p>
               </div>
-              <p className="order-status">Preparing</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
           <div className="detail-cont">
             <h1>Current Order</h1>
             {selectedOrder && 
             <div className='order-detail'>
-              <div className="detail-header">
+              <div className="detail-header-lg">
                 <p className="order-table">Table {selectedOrder.tablenumber}</p>
                 <div className="order-detail">
                   <p className="order-receiver">Recipent : {selectedOrder.userName}</p>
                   <p className="order-id">Order ID : {selectedOrder.id}</p>
                 </div>
               </div>
-              {selectedOrder.order.map((item)=> (
-                <div className="order-detail-list" key={item.id}>
-                  <img src={item.image} alt="" className='order-img'/>
-                  <div className="product-detail">
-                    <p className="item-name">{item.name} <span>x{item.quantity}</span></p>
-                    <p className="item-price">Rp.{item.totalPrice}</p>
+              <div className="selected-order">
+                {selectedOrder.order.map((item)=> (
+                  <div className="order-detail-list" key={item.id}>
+                    <img src={item.image} alt="" className='order-img'/>
+                    <div className="product-detail">
+                      <p className="item-name">{item.name} <span>x{item.quantity}</span></p>
+                      <p className="item-price">Rp.{item.totalPrice}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
               <button className='check-btn'>Check Payment</button>
               <div className="price-detail-cashier">
                 <div className="subtotal-detail">

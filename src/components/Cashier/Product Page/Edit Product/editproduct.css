@@ -1,0 +1,119 @@
+.popup-cont {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  backdrop-filter: blur(2px);
+  z-index: 4;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-cont-lg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px auto;
+  background: #ffffff;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  width: 674px;
+  height: 682px;
+  padding: 20px 50px;
+}
+
+.edit-title {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  color: #353535;
+}
+
+.edit-image-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-prod-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.edit-img-btn {
+  padding: 8px 20px;
+  gap: 10px;
+  width: 129px;
+  height: 34px;
+  background: #dee3df;
+  border-radius: 20px;
+  border: none;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #5a7360;
+}
+
+.edit-form form p {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+.edit-form form p label {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #5a7360;
+}
+
+.edit-form form p input {
+  background: #dee3df;
+  border-radius: 20px;
+  padding: 0px 16px;
+  gap: 10px;
+  border: none;
+  width: 652px;
+  height: 48px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.edit-btn-cont {
+  display: flex;
+  align-self: flex-end;
+}
+
+.edit-btn-cont input {
+  margin: 5px 5px;
+  padding: 8px 20px;
+  gap: 10px;
+  width: 93px;
+  height: 34px;
+  background: #5a7360;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #ffffff;
+  border: none;
+}
+
+.cancel-edit-btn {
+  margin: 5px 5px;
+  padding: 8px 20px;
+  gap: 10px;
+  width: 93px;
+  height: 34px;
+  border: 1px solid #5a7360;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #5a7360;
+  background-color: transparent;
+}

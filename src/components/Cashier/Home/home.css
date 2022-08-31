@@ -9,12 +9,20 @@ body {
   justify-content: space-between;
 }
 
+.home-ttl {
+  margin-bottom: 10px;
+}
+
+.order-card-list {
+  margin-top: 0;
+  max-height: 750px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
 .order-list-admin {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  overflow: hidden;
-  overflow-y: scroll;
 }
 
 .order-card {
@@ -70,15 +78,30 @@ body {
 
 .detail-cont {
   background-color: white;
-  min-width: 416px;
-  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 834px;
+  width: 416px;
+  padding: 0px 26px;
 }
 
-.detail-header {
+.detail-cont h1 {
+  align-self: flex-start;
+  margin-left: 17px;
+}
+
+.detail-header-lg {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+.selected-order {
+  height: 350px;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .order-detail-list {
@@ -173,5 +196,5 @@ p {
   color: white;
   width: 384px;
   height: 48px;
-  margin: 20px 0;
+  margin: 10px 0 20px 0;
 }
