@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BackIcon from '../../assets/bx-arrow-back.svg'
 import './checkout.css'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartActions } from '../../store/cartSlice'
+import Ordertype from './Ordertype/Ordertype'
 
 const Checkout = () => {
     const navigate = useNavigate();
-
+    const [ordertype,setOrderType] = useState(false)
     //=========REDUX==============
     let subtotal = 0;
     const cartItems = useSelector((state) => state.cart.itemsList)
@@ -16,7 +17,7 @@ const Checkout = () => {
     });
     const dispatch = useDispatch()
     const handleClick = () => {
-        navigate('/payment')
+        setOrderType(true)
     }
     const backButton = () => {
         navigate('/menu')
@@ -33,9 +34,10 @@ const Checkout = () => {
     const decrementCartItem = (i) => {
         dispatch(cartActions.removeFromCart(cartItems[i].id))
     }
-    console.log(cartItems)
     return (
+        <>
         <div className='checkout-cont'>
+            {ordertype && <Ordertype cartItem={cartItems} handleClose={value => setOrderType(value)}/>}
             <div className="cont-head">
                 <img src={BackIcon} alt="back" className='back-btn' onClick={()=> backButton()}/>
                 <p className="checkout-title">Checkout</p>
@@ -80,8 +82,8 @@ const Checkout = () => {
                 </div>
                 <button className='proceed-btn' onClick={()=> {handleClick()}}>Proceed to Payment</button>
             </div>
-            
         </div>
+    </>
     )
     }
 

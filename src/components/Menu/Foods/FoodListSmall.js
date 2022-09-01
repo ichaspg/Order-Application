@@ -118,7 +118,7 @@ const FoodListSmall = () => {
                 </motion.div>
         </motion.div>              
         </div>
-            {dataSearch.map((value,index)=>(
+            {data.map((value,index)=>(
             <div className="food-item" key={value.id} >
             <Link  to={`/foods/${value.id}`}>
             <img src={value.image } alt="" className='food-img'/>

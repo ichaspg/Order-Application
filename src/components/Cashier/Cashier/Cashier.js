@@ -14,6 +14,7 @@ import snackicon from '../../../assets/snacks-icon.svg'
 import useFetch from '../../../useFetch'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartActions } from '../../../store/cartSlice'
+import PlaceOrder from './Place Order/PlaceOrder'
 
 const Cashier = () => {
   //===========Fetch data dari API==================================
@@ -63,8 +64,27 @@ const Cashier = () => {
       })
     )
   }
+
+  const incrementCartItem = (i) => {
+    dispatch(cartActions.addToCart({
+      id:cartItems[i].id,
+      name:cartItems[i].name,
+      price:cartItems[i].price,
+      image:cartItems[i].image
+    }))
+  }
+  const decrementCartItem = (i) => {
+    dispatch(cartActions.removeFromCart(cartItems[i].id))
+    }
+  //===================Buat Button Place Order + Popup======================
+  const [placeorder,setPlaceOrder] = useState(false)
+  const handleClick = () => {
+    setPlaceOrder(true)
+  }
+
   return (
     <>
+      {placeorder && <PlaceOrder cartItems={cartItems} handleCancel={value => setPlaceOrder(value)}/>}
       <Sidebar/>
       <div className="cashier-cont">
         <div className="product-cont">
@@ -152,7 +172,7 @@ const Cashier = () => {
         <div className="order-cart">
           <h1>Current Order</h1>
           <div className="order-cart-list">
-            {cartItems.map((item) => (
+            {cartItems.map((item,index) => (
               <div className="order-item-cashier" key={item.id}>
                 <img src={item.image} alt="" className='order-item-img' />
                 <div className="order-item-desc">
@@ -160,9 +180,9 @@ const Cashier = () => {
                   <p className="order-item-price">Rp.{item.price}</p>
                 </div>
                 <div className="quantity">
-                  <button className='quant-btn'>+</button>
+                  <button className='quant-btn' onClick={() => incrementCartItem(index)}>+</button>
                   <p>{item.quantity}</p>
-                  <button className='quant-btn'>+</button>
+                  <button className='quant-btn' onClick={() => decrementCartItem(index)}>-</button>
                 </div>
               </div>
             ))}
@@ -183,7 +203,7 @@ const Cashier = () => {
                 </div>
               </div>
           </div>
-          <button className='addorder-btn'>Place Order</button>
+          <button className='addorder-btn' onClick={() => handleClick()}>Place Order</button>
         </div>
       </div>
     </>

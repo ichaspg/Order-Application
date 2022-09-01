@@ -134,8 +134,8 @@ const Product = () => {
                   </div>
               </div>
               <div className="button-cont">
-                <button className='delete-btn' onClick={() => deleteMenuClicked(index)}>Delete</button>
-                <button className="edit-btn" onClick={() => editMenuClicked(index)}>Edit</button>
+                <button className='delete-btn' onClick={() => deleteMenuClicked(item.id-1)}>Delete</button>
+                <button className="edit-btn" onClick={() => editMenuClicked(item.id-1)}>Edit</button>
               </div>
             </div>
           ))}

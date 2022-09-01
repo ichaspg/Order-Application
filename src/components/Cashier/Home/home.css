@@ -82,6 +82,7 @@ body {
   flex-direction: column;
   align-items: center;
   max-height: 834px;
+  height: 834px;
   width: 416px;
   padding: 0px 26px;
 }

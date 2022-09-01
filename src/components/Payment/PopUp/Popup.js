@@ -6,22 +6,24 @@ import cash from '../../../assets/cash.png'
 import qr from '../../../assets/qrcode.png'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 
 const Popup = (props) => {
   const cartItems = useSelector((state) => state.cart.itemsList)
   const userData = JSON.parse(localStorage.getItem('user'))
+  const navigate = useNavigate()
   let subtotal = 0;
   cartItems.forEach((item) => {
     item ? subtotal += item.totalPrice : subtotal -= item.totalPrice;
   });
   const total = subtotal + (subtotal * 0.1)
-  const handleSubmit = (e) => {
+  const handleSubmit = (method) => {
     axios.post('http://localhost:8000/order',{
       userId: 1,
       userName:userData.name,
       tablenumber:userData.tablenumber,
-      method:'bca',
+      method:method,
       order:cartItems,
       subtotal:subtotal,
       total:total
@@ -29,6 +31,7 @@ const Popup = (props) => {
       console.log(response.status)
       console.log(response.data)
     })
+    navigate('/menu')
   }
   switch (props.value) {
     case 0: //Cancel
@@ -48,7 +51,7 @@ const Popup = (props) => {
             </p>
             <div className="button-cont">
               <button className='cancel-btn' onClick={() => props.handlecancel(0)}>Cancel</button>
-              <button className='done-btn' onClick={() => handleSubmit()}>Done</button>
+              <button className='done-btn' onClick={() => handleSubmit('BCA Bank Transfer')}>Done</button>
             </div>
           </div>
         </div>
@@ -66,7 +69,7 @@ const Popup = (props) => {
             </p>
             <div className="button-cont">
               <button className='cancel-btn' onClick={() => props.handlecancel(0)}>Cancel</button>
-              <button className='done-btn'>Done</button>
+              <button className='done-btn' onClick={() => handleSubmit('Gopay')}>Done</button>
             </div>
           </div>
         </div>
@@ -84,7 +87,7 @@ const Popup = (props) => {
               </p>
               <div className="button-cont">
                 <button className='cancel-btn' onClick={() => props.handlecancel(0)}>Cancel</button>
-                <button className='done-btn'>Done</button>
+                <button className='done-btn' onClick={() => handleSubmit('QRIS')}>Done</button>
               </div>
             </div>
           </div>
@@ -99,7 +102,7 @@ const Popup = (props) => {
             <input type="number" pattern='[0-9]' className='cash-input' placeholder='Input Your cash amount'/>
             <div className="button-cont">
               <button className='cancel-btn' onClick={() => props.handlecancel(0)}>Cancel</button>
-              <button className='done-btn'>Done</button>
+              <button className='done-btn' onClick={() => handleSubmit('Cash')}>Done</button>
             </div>
           </div>
         </div>
