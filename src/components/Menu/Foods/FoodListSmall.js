@@ -43,12 +43,12 @@ const FoodListSmall = () => {
     })
     //==================================================================
     //============Redux=============================================
+    const dispatch = useDispatch();
     let total = 0
     const itemsList = useSelector((state) => state.cart.itemsList);
     itemsList.forEach((item) => {
         total += item.totalPrice;
     });
-    const dispatch = useDispatch();
     const addToCart = (i) => {
         dispatch(
             cartActions.addToCart({

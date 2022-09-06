@@ -17,6 +17,8 @@ const Checkout = () => {
     });
     const dispatch = useDispatch()
     const handleClick = () => {
+        let total = subtotal + (subtotal * 0.1)
+        dispatch(cartActions.totalAllPrice(total))
         setOrderType(true)
     }
     const backButton = () => {
@@ -34,6 +36,7 @@ const Checkout = () => {
     const decrementCartItem = (i) => {
         dispatch(cartActions.removeFromCart(cartItems[i].id))
     }
+
     return (
         <>
         <div className='checkout-cont'>
@@ -80,7 +83,7 @@ const Checkout = () => {
                     <p className="total-title">Total</p>
                     <p className="total-price">Rp.{subtotal + (subtotal* 0.1)}</p>
                 </div>
-                <button className='proceed-btn' onClick={()=> {handleClick()}}>Proceed to Payment</button>
+                <button className='proceed-btn' onClick={()=> {handleClick()}} disabled={!subtotal}>Proceed to Payment</button>
             </div>
         </div>
     </>

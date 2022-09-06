@@ -3,24 +3,18 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import loginbg from '../../assets/bglogin.png'
 import './login.css'
-import axios from 'axios'
 
 const Login = () => {
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [tablenumber,setTableNumber] = useState('');
-    const method = ''
     const order = [{}]
     const navigate = useNavigate()
 
-    //=================Submit (POST ke API & Local Storage) ========================
+    //=================Submit ( Local Storage) ========================
     const handleSubmit = (event) => {
-        const userData = {name,email,tablenumber,method,order}
-        axios.post('http://localhost:8000/user',userData).then((response) => {
-          localStorage.setItem('user', JSON.stringify(userData))
-          console.log(response.status)
-          console.log(response.data)
-        })
+        const userData = {name,email,tablenumber,order}
+        localStorage.setItem('user', JSON.stringify(userData))
         navigate('/menu')
     }
     //============================================================================

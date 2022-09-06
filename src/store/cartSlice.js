@@ -5,6 +5,7 @@ const cartSlice = createSlice({
   initialState: {
     itemsList: [],
     totalQuantity: 0,
+    totalAllPrice:0,
     showCart: false,
     changed: false,
   },
@@ -42,7 +43,10 @@ const cartSlice = createSlice({
         existingItem.quantity--;
         existingItem.totalPrice -= existingItem.price;
       }
-    }
+    },
+  totalAllPrice(state,action){
+    state.totalAllPrice = action.payload;
+  }
   }
 })
 

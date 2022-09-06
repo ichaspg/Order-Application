@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import useFetch from '../../../useFetch'
+import { useDispatch } from 'react-redux'
+import { orderActions } from '../../../store/orderSlice'
 import FoodListSmall from '../Foods/FoodListSmall'
 import './menu.css'
 
 const Menu = () => {
   //=======Ambil User Dari Local Storage ==========================
   const user = JSON.parse(localStorage.getItem('user'))
+  const dispatch = useDispatch()
+  dispatch(orderActions.userInfo(user))
+  
   //=================================================================
   return (
     <>
