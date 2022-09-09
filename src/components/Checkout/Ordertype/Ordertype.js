@@ -20,7 +20,8 @@ const Ordertype = ({cartItems,handleClose}) => {
     dispacth(orderActions.addOrderType(type))
     dispacth(orderActions.userInfo({
       ...userInfo,
-      method: type}))
+      orderType: type,
+    }))
     navigate('/payment')
   }
  

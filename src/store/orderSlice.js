@@ -8,6 +8,7 @@ const orderSlice = createSlice({
     paidOrder:false,
     checkOut: false,
     changed:false,
+    orderDetail:[],
     user:[]
   },
   reducers:{
@@ -30,6 +31,9 @@ const orderSlice = createSlice({
     userInfo(state,action){
       state.changed = true;
       state.user = action.payload;
+    },
+    orderInfo(state,action){
+      state.orderDetail = action.payload
     }
   }
 })

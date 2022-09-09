@@ -8,12 +8,13 @@ const Login = () => {
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [tablenumber,setTableNumber] = useState('');
+    const uploadPayment = ''
     const order = [{}]
     const navigate = useNavigate()
 
     //=================Submit ( Local Storage) ========================
     const handleSubmit = (event) => {
-        const userData = {name,email,tablenumber,order}
+        const userData = {name,email,tablenumber,order,uploadPayment}
         localStorage.setItem('user', JSON.stringify(userData))
         navigate('/menu')
     }

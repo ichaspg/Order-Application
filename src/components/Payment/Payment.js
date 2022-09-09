@@ -12,6 +12,9 @@ import axios from 'axios'
 
 
 const Payment = () => {
+  const userInfo = useSelector((state) => state.order.user)
+  const checkOut = useSelector((state) => state.order.checkOut)
+  const payStatus = useSelector((state) => state.order.paidOrder)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const backButton = () => {
@@ -24,8 +27,15 @@ const Payment = () => {
     dispatch(orderActions.addpaymentMethod(selectedMethod))
     dispatch(orderActions.checkOutStatus())
     dispatch(orderActions.payStatus(false))
-    axios.post('http://localhost:8000/user')
+    dispatch(orderActions.userInfo({
+      ...userInfo,
+      paymentMethod: val,
+      checkOut: checkOut,
+      paidOrder: payStatus
+    }))
+    localStorage.setItem('user', JSON.stringify(userInfo))
     navigate(`/${val}`)
+    
   }
 
   

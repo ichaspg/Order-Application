@@ -5,11 +5,15 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartActions } from '../../store/cartSlice'
 import Ordertype from './Ordertype/Ordertype'
+import { orderActions } from '../../store/orderSlice'
+import axios from 'axios'
+
 
 const Checkout = () => {
     const navigate = useNavigate();
     const [ordertype,setOrderType] = useState(false)
     //=========REDUX==============
+    const userInfo = useSelector((state) => state.order.user)
     let subtotal = 0;
     const cartItems = useSelector((state) => state.cart.itemsList)
     cartItems.forEach((item) => {
@@ -19,6 +23,10 @@ const Checkout = () => {
     const handleClick = () => {
         let total = subtotal + (subtotal * 0.1)
         dispatch(cartActions.totalAllPrice(total))
+        dispatch(orderActions.orderInfo({
+            item: cartItems,
+            totalAllPrice:subtotal + (subtotal * 0.1)
+        }))
         setOrderType(true)
     }
     const backButton = () => {
@@ -36,6 +44,7 @@ const Checkout = () => {
     const decrementCartItem = (i) => {
         dispatch(cartActions.removeFromCart(cartItems[i].id))
     }
+
 
     return (
         <>
