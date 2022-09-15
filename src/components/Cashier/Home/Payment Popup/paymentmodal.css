@@ -1,0 +1,75 @@
+.pay-modal-cont {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 26px;
+  gap: 10px;
+  position: relative;
+  max-width: 416px;
+  max-height: 834px;
+  background-color: white;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+.close-btn-sm {
+  position: absolute;
+  color: black;
+  top: 0;
+  left: 0;
+  margin: 20px;
+  font-weight: 900;
+  font-size: 24px;
+}
+
+.payment-img {
+  width: 364px;
+  height: 640px;
+}
+
+.check-payment-btn-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 400px;
+}
+.decline-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 32px;
+  gap: 10px;
+  width: 150px;
+  height: 38px;
+  margin: 0 5px;
+  background: #f6744c;
+  border-radius: 20px;
+  border: none;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.approve-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 32px;
+  gap: 10px;
+  width: 150px;
+  height: 38px;
+  margin: 0 5px;
+  background: #5a7360;
+
+  border-radius: 20px;
+  border: none;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+  font-weight: 700;
+}

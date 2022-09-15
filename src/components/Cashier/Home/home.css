@@ -130,7 +130,7 @@ p {
 }
 
 .check-btn {
-  width: 384px;
+  width: 180px;
   height: 48px;
   background: #dee3df;
   border: 1px solid #5a7360;
@@ -139,7 +139,20 @@ p {
   font-size: 16px;
   line-height: 24px;
   color: #5a7360;
-  margin: 10px 0;
+  margin: 10px 5px;
+}
+
+.delete-order-btn {
+  width: 180px;
+  height: 48px;
+  background: #f6744c;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+  margin: 10px 5px;
 }
 
 .price-detail-cashier {
@@ -198,4 +211,8 @@ p {
   width: 384px;
   height: 48px;
   margin: 10px 0 20px 0;
+}
+
+.current-btn-cont {
+  display: flex;
 }

@@ -15,6 +15,7 @@ const Payment = () => {
   const userInfo = useSelector((state) => state.order.user)
   const checkOut = useSelector((state) => state.order.checkOut)
   const payStatus = useSelector((state) => state.order.paidOrder)
+  const orderDetail = useSelector((state) => state.order.orderDetail)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const backButton = () => {
@@ -25,17 +26,31 @@ const Payment = () => {
   const handleSelected = (val) => {
     setSelectedMethod(val)
     dispatch(orderActions.addpaymentMethod(selectedMethod))
-    dispatch(orderActions.checkOutStatus())
+    dispatch(orderActions.checkOutStatus(true))
     dispatch(orderActions.payStatus(false))
     dispatch(orderActions.userInfo({
       ...userInfo,
+      order: orderDetail,
       paymentMethod: val,
       checkOut: checkOut,
       paidOrder: payStatus
     }))
-    localStorage.setItem('user', JSON.stringify(userInfo))
+    console.log(userInfo)
+     localStorage.setItem('user', JSON.stringify(userInfo))
+    // axios.post('http://localhost:8000/order',{
+    //   userId: 1,
+    //   userName:userInfo.name,
+    //   tablenumber:userInfo.tablenumber,
+    //   method:selectedMethod,
+    //   order:orderDetail.item,
+    //   subtotal:orderDetail.subtotal,
+    //   total:orderDetail.totalAllPrice
+    // }).then((response) => {
+    //   console.log(response.status)
+    //   console.log(response.data)
+    // })
+   
     navigate(`/${val}`)
-    
   }
 
   

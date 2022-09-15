@@ -25,6 +25,7 @@ const Checkout = () => {
         dispatch(cartActions.totalAllPrice(total))
         dispatch(orderActions.orderInfo({
             item: cartItems,
+            subtotal: subtotal,
             totalAllPrice:subtotal + (subtotal * 0.1)
         }))
         setOrderType(true)

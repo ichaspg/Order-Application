@@ -1,17 +1,31 @@
 import React, { useState } from 'react'
 import useFetch from '../../../useFetch'
 import Sidebar from '../Sidebar/Sidebar'
+import DeleteModal from './Delete Popup/DeleteModal'
 import './home.css'
+import PaymentModal from './Payment Popup/PaymentModal'
 
 const Home = () => {
   const {data : order,isLoading,error} = useFetch('http://localhost:8000/order')
-  const [selectedOrder,setSelectedOrder] = useState()
+  const [selectedOrder,setSelectedOrder] = useState();
+  const [deleteBtn,setDeleteBtn] = useState(false);
+  const [paymentBtn,setPaymentBtn] = useState(false);
   const handleClick = (i) => {
     setSelectedOrder(order[i])
+  }
+  const deleteOrderBtn = (i) => {
+    console.log(order[i])
+    setDeleteBtn(true)
+  }
+
+  const checkPaymentBtn = (i) => {
+    setPaymentBtn(true)
   }
   return (
     <>
       <Sidebar/>
+      {paymentBtn && <PaymentModal order={selectedOrder} handleCancel={value => setPaymentBtn(value)} />}
+      {deleteBtn && <DeleteModal order={selectedOrder} handleCancel={value => setDeleteBtn(value)} />}
       <div className="home-cont">
           <div className="order-list-admin">
           <h1 className='home-ttl'>Order List</h1>
@@ -50,7 +64,10 @@ const Home = () => {
                   </div>
                 ))}
               </div>
-              <button className='check-btn'>Check Payment</button>
+              <div className="current-btn-cont">
+              <button className='check-btn' onClick={()=> checkPaymentBtn(selectedOrder.id)}>Check Payment</button>
+              <button className='delete-order-btn' onClick={() => deleteOrderBtn(selectedOrder.id)}>Delete Order</button>
+              </div>
               <div className="price-detail-cashier">
                 <div className="subtotal-detail">
                   <p>Subtotal</p>

@@ -20,15 +20,15 @@ const orderSlice = createSlice({
       state.changed = true;
       state.orderType = action.payload;
     },
-    checkOutStatus(state){
+    checkOutStatus(state,action){
       state.changed = true;
-      state.checkOut = true;
+      state.checkOut = action.payload;
     },
     payStatus(state,action){
       state.changed = true;
       state.paidOrder = action.payload;
     },
-    userInfo(state,action){
+    userInfo (state,action){
       state.changed = true;
       state.user = action.payload;
     },
