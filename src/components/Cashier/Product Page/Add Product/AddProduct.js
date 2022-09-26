@@ -14,7 +14,8 @@ const AddProduct = ({handleCancel}) => {
       category:productCategory,
       price:productPrice,
       description:productDesc,
-      image:''
+      image:'',
+      status: "Available"
     }).then((response) => {
       console.log(response.status)
       console.log(response.data)

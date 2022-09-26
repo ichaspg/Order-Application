@@ -84,6 +84,7 @@ const Cashier = () => {
 
   return (
     <>
+    <div className="cashier-cont">
       {placeorder && <PlaceOrder cartItems={cartItems} handleCancel={value => setPlaceOrder(value)}/>}
       <Sidebar/>
       <div className="cashier-cont">
@@ -164,7 +165,8 @@ const Cashier = () => {
                         <p className="product-price">Rp.{item.price}</p>
                       </div>
                   </div>
-                  <button className='add-order-btn' onClick={() => addToOrder(index)}>Add to Order</button>
+                 {item.status === "Available" && <button className='add-order-btn' onClick={() => addToOrder(index)}>Add to Order</button>}
+                 {item.status === "Out" && <p className='out-desc'>Out of Stock</p>}
                 </div>
               ))}
             </div>
@@ -206,6 +208,7 @@ const Cashier = () => {
           <button className='addorder-btn' onClick={() => handleClick()}>Place Order</button>
         </div>
       </div>
+    </div>
     </>
   )
 }

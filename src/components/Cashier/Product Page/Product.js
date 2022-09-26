@@ -58,6 +58,7 @@ const Product = () => {
   }
   return (
     <>
+    <div className="cashier-cont">
       {deleteMenu && <DeleteProduct product={selecetedProduct} handleCancel={value => setDeleteMenu(value)}/>}
       {addMenu && <AddProduct handleCancel={value => setAddMenu(value)}/>}
       {editMenu && <EditProduct product={selecetedProduct} handleCancel={value => setEditMenu(value)}/>}
@@ -141,6 +142,7 @@ const Product = () => {
           ))}
         </div>
       </div>
+    </div>
     </>
   )
 }

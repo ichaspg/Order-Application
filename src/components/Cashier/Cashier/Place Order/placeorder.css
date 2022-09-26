@@ -80,3 +80,10 @@
   color: #5a7360;
   background-color: transparent;
 }
+
+.typebtn-cashier-cont {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}

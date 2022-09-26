@@ -128,7 +128,8 @@ const FoodListSmall = () => {
                 <p className="food-desc">{value.description}</p>
                 <div className="price-cont">
                     <p className='food-price'>{`Rp.${value.price}`}</p>
-                    {itemsList && <button className='add-btn-sm' onClick={() => addToCart(index)} >Add Item</button>}
+                    {itemsList && value.status === "Available" && <button className='add-btn-sm' onClick={() => addToCart(index)} >Add Item</button>}
+                    {value.status === "Out" && <p className='out-desc'>Out of Stock</p>}
                 </div>
             </div>
             </div>

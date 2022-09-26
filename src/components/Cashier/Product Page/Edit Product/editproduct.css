@@ -19,7 +19,7 @@
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
   border-radius: 20px;
   width: 674px;
-  height: 682px;
+  height: 722px;
   padding: 20px 50px;
 }
 
@@ -116,4 +116,19 @@
   line-height: 18px;
   color: #5a7360;
   background-color: transparent;
+}
+
+.status-btn-cont {
+  display: flex;
+  width: 600px;
+  align-items: center;
+  justify-content: space-between;
+}
+.available-btn {
+  width: 100px;
+  height: 35px;
+}
+.out-btn {
+  width: 100px;
+  height: 35px;
 }

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import './placeorder.css'
 
@@ -6,7 +7,11 @@ const PlaceOrder = ({cartItems,handleCancel}) => {
   const [tableNumber,setTableNumber] = useState(''); 
   const [orderType,setOrderType] = useState(''); 
   const handleSubmit = () => {
-
+    axios.post('http://localhost:8000/order',{
+      userName: name,
+      tableNumber: tableNumber,
+      orderType: orderType
+    })
   }
    return (
     <div className='place-cont'>
@@ -32,11 +37,10 @@ const PlaceOrder = ({cartItems,handleCancel}) => {
               </p>
               <p>
                 <label htmlFor="name">Order Type</label>
-                <input 
-                type="text"
-                placeholder='Name'
-                onChange={(e) => setName(e.target.value)}
-                 />
+                <div className="typebtn-cashier-cont">
+                  <button className='typebtn-cashier'>Take Away</button>
+                  <button className='typebtn-cashier'>Dine In</button>
+                </div>
               </p>
             </form>
           </div>

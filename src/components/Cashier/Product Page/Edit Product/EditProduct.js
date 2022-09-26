@@ -8,12 +8,18 @@ const EditProduct = ({product,handleCancel}) => {
   const [productCategory,setProductCategory] = useState(product.category)
   const [productPrice,setProductPrice] = useState(product.price)
   const [productDesc,setProductDesc] = useState(product.description)
+  const [status,setStatus] = useState(product.status)
+
+  const statusButtonClicked = (stat) => {
+    setStatus(stat)
+  }
   const handleSubmit = (e) => {
     axios.put('http://localhost:8000/foods/' + product.id,{
       name:productName,
       category:productCategory,
       price:productPrice,
       description:productDesc,
+      status:status,
       image:product.image
     }).then((response) => {
       console.log(response.status)
@@ -66,6 +72,13 @@ const EditProduct = ({product,handleCancel}) => {
               value={productDesc}
               onChange={(e) => setProductDesc(e.target.value)}
                />
+            </p>
+            <p>
+              <label htmlFor="Status">{`Status : ${status}`}</label>
+              <div className="satus-btn-cont">
+                <button className="available-btn" type='button' onClick={() => statusButtonClicked("Available")}>Available</button>
+                <button className="out-btn" type='button' onClick={() => statusButtonClicked("Out")}>Out of Stock</button>
+              </div>
             </p>
         </form>
         </div>

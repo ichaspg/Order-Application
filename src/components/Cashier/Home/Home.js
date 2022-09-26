@@ -23,6 +23,7 @@ const Home = () => {
   }
   return (
     <>
+    <div className="cashier-cont">
       <Sidebar/>
       {paymentBtn && <PaymentModal order={selectedOrder} handleCancel={value => setPaymentBtn(value)} />}
       {deleteBtn && <DeleteModal order={selectedOrder} handleCancel={value => setDeleteBtn(value)} />}
@@ -32,12 +33,17 @@ const Home = () => {
             <div className="order-card-list">
             {order.map((item,index) => (
               <div className="order-card" key={item.id} onClick={()=> handleClick(index)}>
+              <div className="table-type">
                 <p className="order-table">Table {item.tablenumber}</p>
+                <p>{`${item.orderType}`}</p>
+              </div>
                 <div className="order-detail">
                   <p className="order-receiver">Recepient : {item.userName}</p>
                   <p className="order-id">Order ID : {item.id}</p>
                 </div>
-                <p className="order-status">Preparing</p>
+                {item.status === 'Waiting for Payment' && <p className="order-status-wait">{item.status}</p>}
+                {item.status === 'Checking Payment' && <p className="order-status-check">{item.status}</p>}
+                {item.status === 'Paid' && <p className="order-status-paid">{item.status}</p>}
               </div>
             ))}
           </div>
@@ -47,7 +53,10 @@ const Home = () => {
             {selectedOrder && 
             <div className='order-detail'>
               <div className="detail-header-lg">
+              <div className="table-type">
                 <p className="order-table">Table {selectedOrder.tablenumber}</p>
+                <p>{selectedOrder.orderType}</p>
+              </div>
                 <div className="order-detail">
                   <p className="order-receiver">Recipent : {selectedOrder.userName}</p>
                   <p className="order-id">Order ID : {selectedOrder.id}</p>
@@ -87,6 +96,7 @@ const Home = () => {
             }
           </div>
       </div>
+    </div>
     </>
   )
 }

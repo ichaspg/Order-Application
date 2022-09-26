@@ -1,5 +1,5 @@
 .cashier-cont {
-  margin-left: 120px;
+  margin-left: 70px;
   display: flex;
   justify-content: space-between;
 }
@@ -142,6 +142,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .order-cart h1 {
@@ -197,4 +198,10 @@
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
+}
+
+.out-desc {
+  font-size: 16px;
+  color: #5a7360;
+  font-weight: 700;
 }
