@@ -8,9 +8,6 @@ import './menu.css'
 const Menu = () => {
   //=======Ambil User Dari Local Storage ==========================
   const user = JSON.parse(localStorage.getItem('user'))
-  const dispatch = useDispatch()
-  dispatch(orderActions.userInfo(user))
-  
   //=================================================================
   return (
     <>

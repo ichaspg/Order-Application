@@ -31,44 +31,44 @@
   flex-direction: column;
   align-items: center;
 }
-.method-list {
+.method-btn {
   display: flex;
   align-items: center;
-  justify-content: unset;
-  width: 100%;
+  width: 98%;
+  height: 70px;
   background: white;
-  margin: 5px;
+  border: none;
+  margin: 5px 5px;
+  color: black;
+  font-size: 16px;
+}
+
+.method-btn p {
+  margin: 0 5px;
+}
+
+.method-btn:focus {
+  border: 1px #5a7360 solid;
 }
 
 .method-img {
   align-items: center;
   width: 68px;
   height: 50px;
-  margin: 5px;
+  margin: 5px 10px;
   object-fit: cover;
 }
 
-.checkbox {
-  margin-left: auto;
-  width: 18px;
-  height: 18px;
-  border-radius: 15px;
-}
-
-.method-name {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-  color: #000000;
-}
-
-.arrow {
-  margin-left: auto;
-}
-
-.method-list div {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.proceed-pay-btn {
+  width: 300px;
+  margin-top: auto;
+  align-self: center;
+  margin-bottom: 20px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background: #5a7360;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
 }

@@ -5,25 +5,28 @@ import './ordertype.css'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { orderActions } from '../../../store/orderSlice'
-import { useState } from 'react'
+
 
 
 
 const Ordertype = ({cartItems,handleClose}) => {
   const userInfo = useSelector((state) => state.order.user)
+  const orderInfo = useSelector((state) => state.order.orderDetail)
   const navigate = useNavigate();
   const dispacth = useDispatch();
-  const [userData, setUserData] = useState();
-
+  console.log(userInfo)
 
 
   const handleClick = (type) => {
     dispacth(orderActions.addOrderType(type))
     dispacth(orderActions.userInfo({
       ...userInfo,
+      order:orderInfo,
       orderType: type,
     }))
-    console.log(userInfo)
+  }
+
+  const confirmButtonClicked = () => {
     localStorage.setItem('user',JSON.stringify(userInfo))
     navigate('/payment')
   }
@@ -43,6 +46,7 @@ const Ordertype = ({cartItems,handleClose}) => {
             Take Away
           </button>
         </div>
+          <button className="confirm-btn" onClick={()=> confirmButtonClicked()}>Confirm</button>
       </div>
     </div>
   )

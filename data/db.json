@@ -679,9 +679,9 @@
     },
     {
       "id": 2,
-      "name": "joni",
-      "email": "joni",
-      "tablenumber": "12",
+      "name": "Johnny",
+      "email": "johnny@gmail.com",
+      "tablenumber": "8",
       "order": [
         {}
       ]
@@ -729,7 +729,28 @@
       "subtotal": 292000,
       "total": 321200,
       "uploadPayment": "https://1.bp.blogspot.com/-zYFRNxnPRJU/XkZa4yRZEEI/AAAAAAAAAnw/IX03lq9sZ2sZqj9rR0eqkBrotxm_61cfQCLcBGAsYHQ/s1600/Pada%2Bhalaman%2BPembayaran%2Bberhasil.png",
-      "id": 1
+      "id": 1,
+      "status": "Checking Payment"
+    },
+    {
+      "userId": 2,
+      "userName": "Johnny",
+      "tablenumber": "8",
+      "method": "BCA Transfer",
+      "order": [
+        {
+          "id": 1,
+          "price": 24000,
+          "quantity": 2,
+          "totalPrice": 48000,
+          "name": "Ice Vanilla Waffle",
+          "image": "https://images.unsplash.com/photo-1582394196024-4976586db22e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=689&q=80"
+        }
+      ],
+      "subtotal": 48000,
+      "total": 52800,
+      "status": "Waiting for Payment",
+      "id": 2
     }
   ],
   "carousel": [

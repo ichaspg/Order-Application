@@ -6,7 +6,7 @@ const orderSlice = createSlice({
     orderType: '',
     paymentMethod:'',
     paidOrder:false,
-    checkOut: false,
+    checkOut: true,
     changed:false,
     orderDetail:[],
     user:[]

@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import loginbg from '../../assets/bglogin.png'
 import axios from 'axios'
 import './login.css'
+import { orderActions } from '../../store/orderSlice'
+import { useDispatch } from 'react-redux'
 
 const Login = () => {
     const [name,setName] = useState('');
@@ -12,12 +14,17 @@ const Login = () => {
     const order = [{}]
     const id = null
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    
+  
 
     //=================Submit ( Local Storage) ========================
     const handleSubmit = (event) => {
         const userData = {id,name,email,tablenumber,order}
         localStorage.setItem('user', JSON.stringify(userData))
         axios.post('http://localhost:8000/user',userData).then((response) => {
+          localStorage.setItem('user', JSON.stringify(response.data))
+          dispatch(orderActions.userInfo(response.data))
           console.log(response.status)
           console.log(response.data)
       })
