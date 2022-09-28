@@ -2,15 +2,22 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import './placeorder.css'
 
-const PlaceOrder = ({cartItems,handleCancel}) => {
+const PlaceOrder = ({cartItems,subtotal,handleCancel}) => {
   const [name,setName] = useState(''); 
   const [tableNumber,setTableNumber] = useState(''); 
   const [orderType,setOrderType] = useState(''); 
+  const orderTypeButtonClicked = (type) => {
+    setOrderType(type)
+  }
   const handleSubmit = () => {
     axios.post('http://localhost:8000/order',{
       userName: name,
       tableNumber: tableNumber,
-      orderType: orderType
+      order:cartItems,
+      orderType: orderType,
+      subtotal:subtotal,
+      total:subtotal + (subtotal * 0.1),
+      status:"Paid"
     })
   }
    return (
@@ -38,8 +45,8 @@ const PlaceOrder = ({cartItems,handleCancel}) => {
               <p>
                 <label htmlFor="name">Order Type</label>
                 <div className="typebtn-cashier-cont">
-                  <button className='typebtn-cashier'>Take Away</button>
-                  <button className='typebtn-cashier'>Dine In</button>
+                  <button className='typebtn-cashier' type='button' onClick={() => orderTypeButtonClicked("Take Away")}>Take Away</button>
+                  <button className='typebtn-cashier' type='button' onClick={() => orderTypeButtonClicked("Dine In")}>Dine In</button>
                 </div>
               </p>
             </form>

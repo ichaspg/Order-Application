@@ -21,6 +21,7 @@ const Home = () => {
   const checkPaymentBtn = (i) => {
     setPaymentBtn(true)
   }
+  console.log(selectedOrder)
   return (
     <>
     <div className="cashier-cont">

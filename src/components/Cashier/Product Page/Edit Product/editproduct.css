@@ -120,15 +120,31 @@
 
 .status-btn-cont {
   display: flex;
-  width: 600px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 .available-btn {
   width: 100px;
   height: 35px;
+  margin: 5px 10px;
+  border: none;
+  background: #5a7360;
+  border-radius: 20px;
+  color: white;
 }
 .out-btn {
   width: 100px;
   height: 35px;
+  margin: 5px 10px;
+  border: none;
+  border-radius: 20px;
+  color: #f64c4c;
+  background: rgba(246, 76, 76, 0.2);
+}
+
+.available-btn:focus {
+  border: 1px solid black;
+}
+.out-btn:focus {
+  border: 1px solid black;
 }

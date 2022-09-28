@@ -75,7 +75,7 @@ const EditProduct = ({product,handleCancel}) => {
             </p>
             <p>
               <label htmlFor="Status">{`Status : ${status}`}</label>
-              <div className="satus-btn-cont">
+              <div className="status-btn-cont">
                 <button className="available-btn" type='button' onClick={() => statusButtonClicked("Available")}>Available</button>
                 <button className="out-btn" type='button' onClick={() => statusButtonClicked("Out")}>Out of Stock</button>
               </div>

@@ -77,6 +77,7 @@ const Cashier = () => {
     dispatch(cartActions.removeFromCart(cartItems[i].id))
     }
   //===================Buat Button Place Order + Popup======================
+  
   const [placeorder,setPlaceOrder] = useState(false)
   const handleClick = () => {
     setPlaceOrder(true)
@@ -85,7 +86,7 @@ const Cashier = () => {
   return (
     <>
     <div className="cashier-cont">
-      {placeorder && <PlaceOrder cartItems={cartItems} handleCancel={value => setPlaceOrder(value)}/>}
+      {placeorder && <PlaceOrder cartItems={cartItems} handleCancel={value => setPlaceOrder(value)} subtotal={total}/>}
       <Sidebar/>
       <div className="cashier-cont">
         <div className="product-cont">
@@ -205,7 +206,7 @@ const Cashier = () => {
                 </div>
               </div>
           </div>
-          <button className='addorder-btn' onClick={() => handleClick()}>Place Order</button>
+          <button className='addorder-btn' onClick={() => handleClick()} disabled={!total}>Place Order</button>
         </div>
       </div>
     </div>

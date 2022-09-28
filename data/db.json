@@ -5,18 +5,18 @@
       "category": "Signature",
       "price": 24000,
       "description": "lorem lorem lorem",
-      "status": "Out",
+      "status": "Available",
       "image": "https://images.unsplash.com/photo-1582394196024-4976586db22e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=689&q=80",
       "id": 1
     },
     {
-      "id": 2,
-      "category": "Signature",
       "name": "Es Kopi Kona",
+      "category": "Signature",
       "price": 22000,
       "description": "lorem lorem lorem",
+      "status": "Available",
       "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      "status": "Available"
+      "id": 2
     },
     {
       "id": 3,
@@ -753,6 +753,49 @@
       "status": "Waiting for Payment",
       "id": 2,
       "orderType": "Take Away"
+    },
+    {
+      "userName": "Kenny",
+      "tableNumber": "Kenny@gmail.com",
+      "order": [
+        {
+          "id": 2,
+          "price": 22000,
+          "quantity": 1,
+          "totalPrice": 22000,
+          "name": "Es Kopi Kona",
+          "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        },
+        {
+          "id": 1,
+          "price": 24000,
+          "quantity": 1,
+          "totalPrice": 24000,
+          "name": "Ice Vanilla Waffle",
+          "image": "https://images.unsplash.com/photo-1582394196024-4976586db22e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=689&q=80"
+        },
+        {
+          "id": 3,
+          "price": 29000,
+          "quantity": 1,
+          "totalPrice": 29000,
+          "name": "AffoGelato",
+          "image": "https://images.unsplash.com/photo-1612197127729-c623fa1d0360?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        },
+        {
+          "id": 4,
+          "price": 22000,
+          "quantity": 1,
+          "totalPrice": 22000,
+          "name": "Waffle Kona",
+          "image": "https://images.unsplash.com/photo-1566459752050-10cacc371cf1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+        }
+      ],
+      "orderType": "Take Away",
+      "subtotal": 97000,
+      "total": 106700,
+      "status": "Paid",
+      "id": 3
     }
   ],
   "carousel": [
