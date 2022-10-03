@@ -12,13 +12,15 @@ const PlaceOrder = ({cartItems,subtotal,handleCancel}) => {
   const handleSubmit = () => {
     axios.post('http://localhost:8000/order',{
       userName: name,
-      tableNumber: tableNumber,
+      tablenumber: tableNumber,
       order:cartItems,
       orderType: orderType,
       subtotal:subtotal,
       total:subtotal + (subtotal * 0.1),
       status:"Paid"
     })
+    handleCancel(false)
+    
   }
    return (
     <div className='place-cont'>
@@ -38,7 +40,7 @@ const PlaceOrder = ({cartItems,subtotal,handleCancel}) => {
                 <label htmlFor="name">Table Number</label>
                 <input 
                 type="text"
-                placeholder='Name'
+                placeholder='Table Number'
                 onChange={(e) => setTableNumber(e.target.value)}
                  />
               </p>

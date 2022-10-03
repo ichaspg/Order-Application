@@ -24,7 +24,7 @@ const Home = () => {
   console.log(selectedOrder)
   return (
     <>
-    <div className="cashier-cont">
+    <div className="cashier-cont2">
       <Sidebar/>
       {paymentBtn && <PaymentModal order={selectedOrder} handleCancel={value => setPaymentBtn(value)} />}
       {deleteBtn && <DeleteModal order={selectedOrder} handleCancel={value => setDeleteBtn(value)} />}
@@ -38,7 +38,7 @@ const Home = () => {
                 <p className="order-table">Table {item.tablenumber}</p>
                 <p>{`${item.orderType}`}</p>
               </div>
-                <div className="order-detail">
+                <div className="order-detail-sm">
                   <p className="order-receiver">Recepient : {item.userName}</p>
                   <p className="order-id">Order ID : {item.id}</p>
                 </div>

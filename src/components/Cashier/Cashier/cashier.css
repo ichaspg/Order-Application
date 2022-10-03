@@ -1,16 +1,19 @@
+body {
+  background-color: #dee3df;
+}
 .cashier-cont {
   margin-left: 70px;
   display: flex;
   justify-content: space-between;
 }
 
-.product-cont {
+/* .product-cont {
   max-width: 658px;
   max-height: 834px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-}
+} */
 
 .category-inner-carousel {
   display: flex;
@@ -19,6 +22,7 @@
 
 .category-item {
   margin: 0 10px;
+  margin-left: 20px;
 }
 
 .category-btn-big {
@@ -51,7 +55,8 @@
 }
 
 .searchbar-cashier {
-  margin: 10px 10px;
+  margin: 40px 10px;
+  justify-content: center;
 }
 
 .searchbar-cashier input {
@@ -65,13 +70,13 @@
   background: #ffffff;
   border-radius: 20px;
 }
-
+/* 
 .product-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   max-height: 834px;
   overflow-y: scroll;
-}
+} */
 .product-item {
   width: 250px;
   height: 200px;
@@ -134,7 +139,9 @@
   color: #5a7360;
   margin: 0 auto;
 }
-.order-cart {
+
+/* order cart */
+/* .order-cart {
   background-color: white;
   padding: 40px 26px;
   gap: 10px;
@@ -204,4 +211,308 @@
   font-size: 16px;
   color: #5a7360;
   font-weight: 700;
+} */
+
+/* media queries responsive */
+@media (min-aspect-ratio: 16/9) {
+}
+@media (max-aspect-ratio: 9/16) {
+}
+
+/* screenwidth less than 2048px
+--------------------------------------------------------------------- */
+@media only screen and (max-width: 2048px) {
+  body {
+    overflow-x: hidden;
+  }
+  /* sidebar */
+  .sidebar-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    position: fixed;
+    background-color: white;
+    overflow: hidden;
+    left: 0;
+    margin: 0;
+  }
+
+  .cashier-logo {
+    margin: 15px;
+  }
+
+  .menu-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .menu-cont a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+  }
+
+  .menu-name {
+    margin-top: 0;
+  }
+
+  .logout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* content */
+
+  .product-cont {
+    max-width: 100%;
+    max-height: 975px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* product list */
+
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-height: 834px;
+    overflow-y: scroll;
+  }
+
+  /* order cart */
+  .order-cart {
+    background-color: white;
+    padding: 40px 26px;
+    gap: 10px;
+    margin-left: 49px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .order-cart h1 {
+    align-self: flex-start;
+  }
+
+  .order-cart-list {
+    max-height: 550px;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  .order-item-cashier {
+    display: flex;
+    align-items: center;
+    width: 364px;
+    height: 80px;
+    margin: 10px 0;
+  }
+
+  .order-item-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+  }
+
+  .order-item-desc {
+    display: flex;
+    flex-direction: column;
+    margin: 0 5px;
+  }
+
+  .order-item-name {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #353535;
+  }
+
+  .order-item-price {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #353535;
+  }
+
+  .addorder-btn {
+    width: 364px;
+    height: 48px;
+    border: none;
+    background: #5a7360;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+  }
+
+  .out-desc {
+    font-size: 16px;
+    color: #5a7360;
+    font-weight: 700;
+  }
+}
+
+/* screenwidth less than 1280px
+--------------------------------------------------------------------- */
+@media only screen and (max-width: 1280px) {
+  /* sidebar */
+  .sidebar-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 800px;
+    position: fixed;
+    background-color: white;
+    overflow: hidden;
+    left: 0;
+    margin: 0;
+  }
+
+  .cashier-logo {
+    margin: 15px;
+  }
+
+  .menu-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .menu-cont a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+  }
+
+  .menu-name {
+    margin-top: 0;
+  }
+
+  .logout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* content */
+
+  .product-cont {
+    max-width: 700px;
+    max-height: 790px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* product list */
+
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-height: 834px;
+    overflow-y: scroll;
+  }
+
+  /* order cart */
+  .order-cart {
+    background-color: white;
+    padding: 40px 26px;
+    gap: 10px;
+    margin-left: 11px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .order-cart h1 {
+    align-self: flex-start;
+  }
+
+  .order-cart-list {
+    max-height: 400px;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  .order-item-cashier {
+    display: flex;
+    align-items: center;
+    width: 364px;
+    height: 80px;
+    margin: 10px 0;
+  }
+
+  .order-item-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+  }
+
+  .order-item-desc {
+    display: flex;
+    flex-direction: column;
+    margin: 0 5px;
+  }
+
+  .order-item-name {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #353535;
+  }
+
+  .order-item-price {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #353535;
+  }
+
+  .addorder-btn {
+    width: 364px;
+    height: 48px;
+    border: none;
+    background: #5a7360;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+  }
+
+  .out-desc {
+    font-size: 16px;
+    color: #5a7360;
+    font-weight: 700;
+  }
+}
+
+/* screenwidth less than 1024px
+--------------------------------------------------------------------- */
+@media only screen and (max-width: 1024px) {
+}
+
+/* screenwidth less than 900px
+--------------------------------------------------------------------- */
+@media only screen and (max-width: 900px) {
+}
+
+/* mobile wide/smaller tablets
+---------------------------------------------------------------------- */
+
+@media only screen and (max-width: 768px) {
+}
+
+/* media  phone  */
+
+@media only screen and (max-width: 392px) {
+}
+
+/* media phone */
+@media only screen and (max-width: 375px) {
 }

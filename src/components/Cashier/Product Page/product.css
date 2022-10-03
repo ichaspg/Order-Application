@@ -49,7 +49,7 @@
 }
 
 .product-page-list-cont {
-  max-height: 530px;
+  height: 530px;
   width: 100%;
   overflow: hidden;
   overflow-y: scroll;
@@ -144,4 +144,42 @@
   line-height: 18px;
   color: #5a7360;
   border: none;
+}
+
+@media only screen and (max-width: 2048px) {
+  .product-page-list-cont {
+    grid-template-columns: repeat(5, 1fr);
+    align-self: center;
+    margin-left: 70px;
+    height: 650px;
+  }
+  .searchbar-cashier input {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .product-page-list-cont {
+    grid-template-columns: repeat(3, 1fr);
+    align-self: center;
+    margin-left: 0px;
+    height: 650px;
+  }
+
+  .product-page-cont {
+    width: 100%;
+    margin-left: 50px;
+  }
+
+  .product-page-category-cont {
+    margin-right: 80px;
+  }
+
+  .add-product-btn {
+    margin-right: 80px;
+  }
+
+  .search-bar-product {
+    margin-right: 50px;
+  }
 }
