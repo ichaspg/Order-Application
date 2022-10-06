@@ -2,13 +2,17 @@ import axios from 'axios'
 import React,{useState} from 'react'
 import imageicon from '../../../../assets/image-icon.svg'
 import './addproduct.css'
+import 'react-dropdown/style.css';
 
 const AddProduct = ({handleCancel}) => {
   const [productName,setProductName] = useState('')
   const [productCategory,setProductCategory] = useState('')
   const [productPrice,setProductPrice] = useState('')
   const [productDesc,setProductDesc] = useState('')
-  const handleSubmit = (e) => {
+  const handleChange = (event) => {
+    setProductCategory(event.target.value)
+  }
+  const handleSubmit = () => {
     axios.post('http://localhost:8000/foods',{
       name:productName,
       category:productCategory,
@@ -21,6 +25,7 @@ const AddProduct = ({handleCancel}) => {
       console.log(response.data)
     })
     handleCancel(false)
+    window.location.reload();
   }
   return (
     <div className='popup-cont'>
@@ -42,11 +47,16 @@ const AddProduct = ({handleCancel}) => {
               </p>
               <p>
                 <label htmlFor="category">Category</label>
-                <input 
-                type="text"
-                placeholder='Item Category'
-                onChange={(e) => setProductCategory(e.target.value)}
-                 />
+                <select name="category" onChange={handleChange} value={productCategory}>
+                  <option value="Signature">Signature</option>
+                  <option value="Coffee">Coffee</option>
+                  <option value="Manual Brew">Manual Brew</option>
+                  <option value="Milk Base">Milk Base</option>
+                  <option value="Refreshment">Refreshment</option>
+                  <option value="Tea">Tea</option>
+                  <option value="Main Course">Main Course</option>
+                  <option value="Snack">Snack</option>
+                </select>
               </p>
               <p>
                 <label htmlFor="price">Price</label>

@@ -11,6 +11,7 @@ const DeleteProduct = ({order,handleCancel}) => {
       console.log(response.data)
     })
     handleCancel(false)
+    window.location.reload();
   }
   return (
     <div className='popup-cont'>

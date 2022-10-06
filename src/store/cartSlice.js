@@ -46,7 +46,11 @@ const cartSlice = createSlice({
     },
   totalAllPrice(state,action){
     state.totalAllPrice = action.payload;
+  },
+  clearCart(state){
+    state.itemsList = [];
   }
+  
   }
 })
 

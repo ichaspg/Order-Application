@@ -40,19 +40,19 @@ const Payment = () => {
     console.log(userInfo)
     localStorage.setItem('user', JSON.stringify(userInfo))
 
-    axios.post('http://localhost:8000/order',{
-      userId: userInfo.id,
-      userName:userInfo.name,
-      tablenumber:userInfo.tablenumber,
-      method:selectedMethod,
-      order:orderDetail.item,
-      subtotal:orderDetail.subtotal,
-      total:orderDetail.totalAllPrice,
-      status: userInfo.status
-    }).then((response) => {
-      console.log(response.status)
-      console.log(response.data)
-    })
+    // axios.post('http://localhost:8000/order',{
+    //   userId: userInfo.id,
+    //   userName:userInfo.name,
+    //   tablenumber:userInfo.tablenumber,
+    //   method:selectedMethod,
+    //   order:orderDetail.item,
+    //   subtotal:orderDetail.subtotal,
+    //   total:orderDetail.totalAllPrice,
+    //   status: userInfo.status
+    // }).then((response) => {
+    //   console.log(response.status)
+    //   console.log(response.data)
+    // })
 
     if (selectedMethod === 'BCA Transfer') {
       navigate('/bcatransferpayment')

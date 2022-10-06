@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 import useFetch from '../../../useFetch'
 import Sidebar from '../Sidebar/Sidebar'
 import DeleteModal from './Delete Popup/DeleteModal'
@@ -6,10 +7,14 @@ import './home.css'
 import PaymentModal from './Payment Popup/PaymentModal'
 
 const Home = () => {
-  const {data : order,isLoading,error} = useFetch('http://localhost:8000/order')
+  const {data,isLoading,error} = useFetch('http://localhost:8000/order')
   const [selectedOrder,setSelectedOrder] = useState();
   const [deleteBtn,setDeleteBtn] = useState(false);
   const [paymentBtn,setPaymentBtn] = useState(false);
+  const [order,setOrder] = useState(data)
+  useEffect(() => {
+    setOrder(data)
+  },[data])
   const handleClick = (i) => {
     setSelectedOrder(order[i])
   }

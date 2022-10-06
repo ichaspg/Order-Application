@@ -25,10 +25,6 @@ const Sidebar = () => {
             <img src={product} alt="" className='menu-icon' />
             <p className="menu-name">Product</p>
           </Link>
-          <Link to={'/'}>
-            <img src={report} alt="" className='menu-icon' />
-            <p className="menu-name">Report</p>
-          </Link>
         </div>
         <div className="logout">
           <img src={logout} alt="" className='logout-logo' />

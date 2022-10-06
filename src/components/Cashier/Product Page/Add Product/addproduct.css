@@ -57,6 +57,19 @@
   line-height: 18px;
 }
 
+.add-form form p select {
+  background: #dee3df;
+  border-radius: 20px;
+  padding: 0px 16px;
+  gap: 10px;
+  border: none;
+  width: 685px;
+  height: 48px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+}
+
 .add-btn-cont {
   display: flex;
   align-self: flex-end;

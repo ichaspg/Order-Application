@@ -1,11 +1,15 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../../../../store/cartSlice';
 import './placeorder.css'
+
 
 const PlaceOrder = ({cartItems,subtotal,handleCancel}) => {
   const [name,setName] = useState(''); 
   const [tableNumber,setTableNumber] = useState(''); 
   const [orderType,setOrderType] = useState(''); 
+  const dispatch = useDispatch();
   const orderTypeButtonClicked = (type) => {
     setOrderType(type)
   }
@@ -19,6 +23,7 @@ const PlaceOrder = ({cartItems,subtotal,handleCancel}) => {
       total:subtotal + (subtotal * 0.1),
       status:"Paid"
     })
+    dispatch(cartActions.clearCart())
     handleCancel(false)
     
   }

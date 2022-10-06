@@ -6,6 +6,7 @@ import Popup from './Popup/Popup'
 
 const QrisPayment = () => {
   const totalPrice = useSelector((state) => state.cart.totalAllPrice)
+  const user = JSON.parse(localStorage.getItem('user'))
   const cartItem = useSelector((state) => state.cart.itemsLists)
   const [popup,setPopup] = useState(false)
   const handleClick = (value) => {
@@ -21,7 +22,7 @@ const QrisPayment = () => {
       </div>
       <div className="paymentdetail-amount">
         <p className="total-payment-ttl">Total Pembayaran</p>
-        <p className="total-payment-amount">Rp.{totalPrice}</p>
+        <p className="total-payment-amount">Rp.{user.order.totalAllPrice}</p>
         <p className="payment-instruction">Bayar pesanan sesuai jumlah diatas </p>
         <p className="payment-desc">Segera  lakukan pembayaran anda setelah melakukan checkout.Jika dalam waktu 15 menit bukti transfer belum diunggah, maka order dianggap batal dan anda akan dikembalikan ke menu utama</p>
       </div>
