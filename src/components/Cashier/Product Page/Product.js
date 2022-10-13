@@ -17,7 +17,7 @@ import DeleteProduct from './Delete Product/DeleteProduct'
 
 const Product = () => {
   //================Fetch Data dari Database=================================
-  const {data:foods,isLoading,error} =useFetch('http://localhost:8000/foods')
+  const {data:foods,isLoading,error} =useFetch('http://localhost:5000/api/foods')
   const [data,setData] = useState(foods)
   useEffect(()=>{
     setData(foods)
@@ -125,7 +125,7 @@ const Product = () => {
         <button className='add-product-btn' onClick={() => addMenuClicked()}>Add New Menu</button>
         <div className="product-page-list-cont">
           {dataSearch.map((item,index) => (
-            <div className="product-page-item" key={item.id}>
+            <div className="product-page-item" key={item._id}>
               <div className="product-info-lg">
                 <img src={item.image} alt="" className="product-img-lg" />
                   <div className="product-detail-lg">
@@ -135,8 +135,8 @@ const Product = () => {
                   </div>
               </div>
               <div className="button-cont">
-                <button className='delete-btn' onClick={() => deleteMenuClicked(item.id-1)}>Delete</button>
-                <button className="edit-btn" onClick={() => editMenuClicked(item.id-1)}>Edit</button>
+                <button className='delete-btn' onClick={() => deleteMenuClicked(index)}>Delete</button>
+                <button className="edit-btn" onClick={() => editMenuClicked(index)}>Edit</button>
               </div>
             </div>
           ))}

@@ -15,6 +15,7 @@ const Payment = () => {
   const userInfo = useSelector((state) => state.order.user)
   const checkOut = useSelector((state) => state.order.checkOut)
   const orderDetail = useSelector((state) => state.order.orderDetail)
+  const orderType = useSelector((state) => state.order.orderType)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const backButton = () => {
@@ -32,27 +33,30 @@ const Payment = () => {
       order: orderDetail,
       paymentMethod: val,
       checkOut: checkOut,
+      orderType:orderType,
       status: 'Waiting for Payment'
     }))
   }
+  console.table(orderDetail)
 
   const proceedButtonClicked = () => {
     console.log(userInfo)
     localStorage.setItem('user', JSON.stringify(userInfo))
 
-    // axios.post('http://localhost:8000/order',{
-    //   userId: userInfo.id,
-    //   userName:userInfo.name,
-    //   tablenumber:userInfo.tablenumber,
-    //   method:selectedMethod,
-    //   order:orderDetail.item,
-    //   subtotal:orderDetail.subtotal,
-    //   total:orderDetail.totalAllPrice,
-    //   status: userInfo.status
-    // }).then((response) => {
-    //   console.log(response.status)
-    //   console.log(response.data)
-    // })
+    axios.post('http://localhost:5000/api/order',{
+      userId: userInfo._id,
+      userName:userInfo.name,
+      tablenumber:userInfo.tablenumber,
+      method:selectedMethod,
+      order:orderDetail,
+      subtotal:orderDetail.subtotal,
+      total:orderDetail.totalAllPrice,
+      status: userInfo.status,
+      orderType: userInfo.orderType,
+    }).then((response) => {
+      console.log(response.status)
+      console.log(response.data)
+    })
 
     if (selectedMethod === 'BCA Transfer') {
       navigate('/bcatransferpayment')

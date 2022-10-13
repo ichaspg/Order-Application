@@ -6,14 +6,14 @@ import 'react-dropdown/style.css';
 
 const AddProduct = ({handleCancel}) => {
   const [productName,setProductName] = useState('')
-  const [productCategory,setProductCategory] = useState('')
+  const [productCategory,setProductCategory] = useState('Signature')
   const [productPrice,setProductPrice] = useState('')
   const [productDesc,setProductDesc] = useState('')
   const handleChange = (event) => {
     setProductCategory(event.target.value)
   }
   const handleSubmit = () => {
-    axios.post('http://localhost:8000/foods',{
+    axios.post('http://localhost:5000/api/foods',{
       name:productName,
       category:productCategory,
       price:productPrice,

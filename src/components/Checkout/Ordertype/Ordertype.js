@@ -28,6 +28,7 @@ const Ordertype = ({cartItems,handleClose}) => {
 
   const confirmButtonClicked = () => {
     localStorage.setItem('user',JSON.stringify(userInfo))
+    console.log(userInfo)
     navigate('/payment')
   }
  

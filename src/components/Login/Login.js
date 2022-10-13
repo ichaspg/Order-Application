@@ -12,6 +12,7 @@ const Login = () => {
     const [email,setEmail] = useState('');
     const [tablenumber,setTableNumber] = useState();
     const order = [{}]
+    const status = "Ordering"
     const id = null
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -20,9 +21,9 @@ const Login = () => {
 
     //=================Submit ( Local Storage) ========================
     const handleSubmit = (event) => {
-        const userData = {id,name,email,tablenumber,order}
+        const userData = {id,name,email,tablenumber,order,status}
         localStorage.setItem('user', JSON.stringify(userData))
-        axios.post('http://localhost:8000/user',userData).then((response) => {
+        axios.post('http://localhost:5000/api/user',userData).then((response) => {
           localStorage.setItem('user', JSON.stringify(response.data))
           dispatch(orderActions.userInfo(response.data))
           console.log(response.status)

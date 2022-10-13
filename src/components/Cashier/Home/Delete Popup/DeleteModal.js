@@ -5,7 +5,7 @@ import './deletemodal.css'
 const DeleteProduct = ({order,handleCancel}) => {
   console.log(order.id)
   const handleDelete = () => {
-    axios.delete('http://localhost:8000/order/' + order.id)
+    axios.delete('http://localhost:5000/api/order/' + order._id)
     .then((response) => {
       console.log(response.status)
       console.log(response.data)

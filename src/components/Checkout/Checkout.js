@@ -35,14 +35,14 @@ const Checkout = () => {
 
     const incrementCartItem = (i) => {
         dispatch(cartActions.addToCart({
-            id:cartItems[i].id,
+            _id:cartItems[i]._id,
             name:cartItems[i].name,
             price:cartItems[i].price,
             image:cartItems[i].image
         }))
     }
     const decrementCartItem = (i) => {
-        dispatch(cartActions.removeFromCart(cartItems[i].id))
+        dispatch(cartActions.removeFromCart(cartItems[i]._id))
     }
     return (
         <>
@@ -56,7 +56,7 @@ const Checkout = () => {
                     <p className="summ-ttl">Order Summary</p>
                     <div className="order-cont">
                         {cartItems.map((item,index) =>(
-                            <div className="order-list" key={item.id}>
+                            <div className="order-list" key={item._id}>
                             {" "}
                                 <div className="order-desc">
                                     <img src={item.image} alt="" className='order-pic'/>

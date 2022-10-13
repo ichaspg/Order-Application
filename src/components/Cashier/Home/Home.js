@@ -7,7 +7,7 @@ import './home.css'
 import PaymentModal from './Payment Popup/PaymentModal'
 
 const Home = () => {
-  const {data,isLoading,error} = useFetch('http://localhost:8000/order')
+  const {data,isLoading,error} = useFetch('http://localhost:5000/api/order')
   const [selectedOrder,setSelectedOrder] = useState();
   const [deleteBtn,setDeleteBtn] = useState(false);
   const [paymentBtn,setPaymentBtn] = useState(false);
@@ -17,6 +17,7 @@ const Home = () => {
   },[data])
   const handleClick = (i) => {
     setSelectedOrder(order[i])
+    console.log(selectedOrder)
   }
   const deleteOrderBtn = (i) => {
     console.log(order[i])
@@ -26,7 +27,6 @@ const Home = () => {
   const checkPaymentBtn = (i) => {
     setPaymentBtn(true)
   }
-  console.log(selectedOrder)
   return (
     <>
     <div className="cashier-cont2">
@@ -38,14 +38,14 @@ const Home = () => {
           <h1 className='home-ttl'>Order List</h1>
             <div className="order-card-list">
             {order.map((item,index) => (
-              <div className="order-card" key={item.id} onClick={()=> handleClick(index)}>
+              <div className="order-card" key={item._id} onClick={()=> handleClick(index)}>
               <div className="table-type">
                 <p className="order-table">Table {item.tablenumber}</p>
                 <p>{`${item.orderType}`}</p>
               </div>
                 <div className="order-detail-sm">
                   <p className="order-receiver">Recepient : {item.userName}</p>
-                  <p className="order-id">Order ID : {item.id}</p>
+                  <p className="order-id">Order ID : {item._id}</p>
                 </div>
                 {item.status === 'Waiting for Payment' && <p className="order-status-wait">{item.status}</p>}
                 {item.status === 'Checking Payment' && <p className="order-status-check">{item.status}</p>}
@@ -57,7 +57,7 @@ const Home = () => {
           <div className="detail-cont">
             <h1>Current Order</h1>
             {selectedOrder && 
-            <div className='order-detail'>
+            <div className='order-detail' key={selectedOrder._id}>
               <div className="detail-header-lg">
               <div className="table-type">
                 <p className="order-table">Table {selectedOrder.tablenumber}</p>
@@ -65,12 +65,12 @@ const Home = () => {
               </div>
                 <div className="order-detail">
                   <p className="order-receiver">Recipent : {selectedOrder.userName}</p>
-                  <p className="order-id">Order ID : {selectedOrder.id}</p>
+                  <p className="order-id">Order ID : {selectedOrder._id}</p>
                 </div>
               </div>
               <div className="selected-order">
-                {selectedOrder.order.map((item)=> (
-                  <div className="order-detail-list" key={item.id}>
+                {selectedOrder.order.item.map((item)=> (
+                  <div className="order-detail-list" key={item._id}>
                     <img src={item.image} alt="" className='order-img'/>
                     <div className="product-detail">
                       <p className="item-name">{item.name} <span>x{item.quantity}</span></p>
@@ -80,8 +80,8 @@ const Home = () => {
                 ))}
               </div>
               <div className="current-btn-cont">
-              <button className='check-btn' onClick={()=> checkPaymentBtn(selectedOrder.id)}>Check Payment</button>
-              <button className='delete-order-btn' onClick={() => deleteOrderBtn(selectedOrder.id)}>Delete Order</button>
+              <button className='check-btn' onClick={()=> checkPaymentBtn(selectedOrder._id)}>Check Payment</button>
+              <button className='delete-order-btn' onClick={() => deleteOrderBtn(selectedOrder._id)}>Delete Order</button>
               </div>
               <div className="price-detail-cashier">
                 <div className="subtotal-detail">

@@ -665,15 +665,6 @@
       "description": "lorem lorem lorem",
       "image": "https://images.unsplash.com/photo-1623653387945-2fd25214f8fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bW96emFyZWxsYSUyMHN0aWNrc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
       "status": "Available"
-    },
-    {
-      "name": "Kopi Jos",
-      "category": "Coffee",
-      "price": "14000",
-      "description": "Kopi Jos",
-      "image": "",
-      "status": "Available",
-      "id": 75
     }
   ],
   "user": [
@@ -771,6 +762,95 @@
       "status": "Waiting for Payment",
       "id": 2,
       "orderType": "Take Away"
+    },
+    {
+      "userId": "6346b19b42871de9f92ae028",
+      "userName": "Roni",
+      "tablenumber": 56,
+      "method": "Cash Payment",
+      "order": [
+        {
+          "id": "63441b4a12092dfd93cab6bf",
+          "price": 24000,
+          "quantity": 1,
+          "totalPrice": 24000,
+          "name": "Ice Vanilla Waffle",
+          "image": "https://images.unsplash.com/photo-1582394196024-4976586db22e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=689&q=80"
+        },
+        {
+          "id": "63441b4a12092dfd93cab6c0",
+          "price": 22000,
+          "quantity": 1,
+          "totalPrice": 22000,
+          "name": "Es Kopi Kona",
+          "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        },
+        {
+          "id": "63441b4a12092dfd93cab6c1",
+          "price": 29000,
+          "quantity": 1,
+          "totalPrice": 29000,
+          "name": "AffoGelato",
+          "image": "https://images.unsplash.com/photo-1612197127729-c623fa1d0360?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        }
+      ],
+      "subtotal": 75000,
+      "total": 82500,
+      "status": "Waiting for Payment",
+      "id": 3
+    },
+    {
+      "userId": "6346b9824039164bbef07123",
+      "userName": "Iwan",
+      "tablenumber": 123,
+      "method": "QRIS",
+      "order": [
+        {
+          "id": "63441b4a12092dfd93cab6bf",
+          "price": 24000,
+          "quantity": 1,
+          "totalPrice": 24000,
+          "name": "Ice Vanilla Waffle",
+          "image": "https://images.unsplash.com/photo-1582394196024-4976586db22e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=689&q=80"
+        },
+        {
+          "id": "63441b4a12092dfd93cab6c0",
+          "price": 22000,
+          "quantity": 1,
+          "totalPrice": 22000,
+          "name": "Es Kopi Kona",
+          "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        },
+        {
+          "id": "63441b4a12092dfd93cab6c1",
+          "price": 29000,
+          "quantity": 1,
+          "totalPrice": 29000,
+          "name": "AffoGelato",
+          "image": "https://images.unsplash.com/photo-1612197127729-c623fa1d0360?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        },
+        {
+          "id": "63441b4a12092dfd93cab6c2",
+          "price": 22000,
+          "quantity": 1,
+          "totalPrice": 22000,
+          "name": "Waffle Kona",
+          "image": "https://images.unsplash.com/photo-1566459752050-10cacc371cf1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+        },
+        {
+          "id": "63441b4a12092dfd93cab6c4",
+          "price": 23000,
+          "quantity": 1,
+          "totalPrice": 23000,
+          "name": "(Hot) Cappuccino",
+          "image": "https://images.unsplash.com/photo-1534778101976-62847782c213?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        }
+      ],
+      "subtotal": 120000,
+      "total": 132000,
+      "status": "Waiting for Payment",
+      "orderType": "Take Away",
+      "id": 4
     }
   ],
   "carousel": [

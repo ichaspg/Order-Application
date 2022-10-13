@@ -10,7 +10,8 @@ import Cart from '../Cart/Cart'
 
 const FoodListSmall = () => {
     //====================Fetch Data dari API==============================
-    const {data:foods,isPending,error} = useFetch('http://localhost:8000/foods')
+    const {data:foods,isPending,error} = useFetch('http://localhost:5000/api/foods')
+    console.log(foods)
     const [data, setData] = useState(foods)
     useEffect(()=>{
         setData(foods)
@@ -53,7 +54,7 @@ const FoodListSmall = () => {
         dispatch(
             cartActions.addToCart({
                 name :data[i].name,
-                id:data[i].id,
+                _id:data[i]._id,
                 price:data[i].price,
                 image:data[i].image
             })
@@ -119,8 +120,8 @@ const FoodListSmall = () => {
         </motion.div>              
         </div>
             {data.map((value,index)=>(
-            <div className="food-item" key={value.id} >
-            <Link  to={`/foods/${value.id}`}>
+            <div className="food-item" key={value._id} >
+            <Link  to={`/foods/${value._id}`}>
             <img src={value.image } alt="" className='food-img'/>
             </Link>
             <div className="food-info">

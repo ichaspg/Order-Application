@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../../../store/cartSlice';
 import './placeorder.css'
 
 
 const PlaceOrder = ({cartItems,subtotal,handleCancel}) => {
+  const orderDetail = useSelector((state) => state.order.orderDetail)
   const [name,setName] = useState(''); 
   const [tableNumber,setTableNumber] = useState(''); 
   const [orderType,setOrderType] = useState(''); 
@@ -14,10 +15,10 @@ const PlaceOrder = ({cartItems,subtotal,handleCancel}) => {
     setOrderType(type)
   }
   const handleSubmit = () => {
-    axios.post('http://localhost:8000/order',{
+    axios.post('http://localhost:5000/api/order',{
       userName: name,
       tablenumber: tableNumber,
-      order:cartItems,
+      order:orderDetail,
       orderType: orderType,
       subtotal:subtotal,
       total:subtotal + (subtotal * 0.1),

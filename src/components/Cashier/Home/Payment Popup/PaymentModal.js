@@ -6,7 +6,7 @@ const PaymentModal = ({order,handleCancel}) => {
   console.log(order)
 
   const approveButtonClicked = () => {
-    axios.put('http://localhost:8000/order/' + order.id,{
+    axios.put('http://localhost:5000/api/order/' + order._id,{
       ...order,
       status: "Paid"
     })

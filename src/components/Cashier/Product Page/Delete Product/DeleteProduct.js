@@ -3,14 +3,14 @@ import React from 'react'
 import './deleteproduct.css'
 
 const DeleteProduct = ({product,handleCancel}) => {
-  console.log(product.id)
-  const handleDelete = () => {
-    axios.delete('http://localhost:8000/foods/' + product.id)
+  console.log(product._id)
+  const handleDelete = async () => {
+    axios.delete('http://localhost:5000/api/foods/' + product._id)
     .then((response) => {
       console.log(response.status)
       console.log(response.data)
     })
-    handleCancel(false)
+    await handleCancel(false)
     window.location.reload();
   }
   return (

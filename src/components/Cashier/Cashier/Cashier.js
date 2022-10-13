@@ -15,10 +15,11 @@ import useFetch from '../../../useFetch'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartActions } from '../../../store/cartSlice'
 import PlaceOrder from './Place Order/PlaceOrder'
+import { orderActions } from '../../../store/orderSlice'
 
 const Cashier = () => {
   //===========Fetch data dari API==================================
-  const {data:foods,isLoading,error} = useFetch('http://localhost:8000/foods')
+  const {data:foods,isLoading,error} = useFetch('http://localhost:5000/api/foods')
   const [data,setData] = useState(foods)
   useEffect(()=>{
     setData(foods)
@@ -58,30 +59,41 @@ const Cashier = () => {
     dispatch(
       cartActions.addToCart({
         name: data[i].name,
-        id:data[i].id,
+        _id:data[i]._id,
         price:data[i].price,
         image:data[i].image
       })
     )
+    console.log(data[i]._id)
   }
 
   const incrementCartItem = (i) => {
     dispatch(cartActions.addToCart({
-      id:cartItems[i].id,
+      _id:cartItems[i]._id,
       name:cartItems[i].name,
       price:cartItems[i].price,
       image:cartItems[i].image
     }))
+    console.log(cartItems[i])
   }
   const decrementCartItem = (i) => {
-    dispatch(cartActions.removeFromCart(cartItems[i].id))
+    dispatch(cartActions.removeFromCart(cartItems[i]._id))
     }
   //===================Buat Button Place Order + Popup======================
   
   const [placeorder,setPlaceOrder] = useState(false)
   const handleClick = () => {
+    //=============Redux Buat Order Info ==============================
+    dispatch(cartActions.totalAllPrice(total))
+    dispatch(orderActions.orderInfo({
+    item:cartItems,
+    subtotal:total,
+    totalAllPrice:total + (total * 0.1)
+  }))
     setPlaceOrder(true)
   }
+
+  
 
   return (
     <>
@@ -157,7 +169,7 @@ const Cashier = () => {
             </div>
             <div className="product-list">
               {dataSearch.map((item,index) => (
-                <div className="product-item" key={item.id}>
+                <div className="product-item" key={item._id}>
                   <div className="product-detail-cashier">
                     <img src={item.image} alt="" className='product-img'/>
                       <div className="product-info">
@@ -176,7 +188,7 @@ const Cashier = () => {
           <h1>Current Order</h1>
           <div className="order-cart-list">
             {cartItems.map((item,index) => (
-              <div className="order-item-cashier" key={item.id}>
+              <div className="order-item-cashier" key={item._id}>
                 <img src={item.image} alt="" className='order-item-img' />
                 <div className="order-item-desc">
                   <p className='order-item-name'>{item.name}</p>

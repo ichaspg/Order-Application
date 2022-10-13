@@ -14,7 +14,7 @@ const EditProduct = ({product,handleCancel}) => {
     setStatus(stat)
   }
   const handleSubmit = (e) => {
-    axios.put('http://localhost:8000/foods/' + product.id,{
+    axios.put('http://localhost:5000/api/foods/' + product._id,{
       name:productName,
       category:productCategory,
       price:productPrice,
