@@ -48,7 +48,7 @@ const Login = () => {
                     onChange={(e) => setName(e.target.value)}
                     />
                     <input 
-                    type="text" 
+                    type="email" 
                     value={email}
                     placeholder='Email'
                     className='input-txt'
@@ -56,7 +56,7 @@ const Login = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     />
                     <input 
-                    type="text" 
+                    type="number" 
                     value={tablenumber}
                     placeholder='Table Number'
                     className='input-txt'

@@ -47,14 +47,16 @@ const Product = () => {
   const [deleteMenu,setDeleteMenu] = useState(false)
   const deleteMenuClicked = (i) => {
     setDeleteMenu(true)
-    setSelectedProduct(foods[i])
+    const selectedItem = foods.find(food => food._id === i)
+    setSelectedProduct(selectedItem)
   }
   //===========================Edit Menu=======================================
   const [editMenu,setEditMenu] = useState(false)
   const [selecetedProduct,setSelectedProduct] = useState()
   const editMenuClicked = (i) => {
     setEditMenu(true)
-    setSelectedProduct(foods[i])
+    const selectedItem = foods.find(food => food._id === i)
+    setSelectedProduct(selectedItem)
   }
   return (
     <>
@@ -135,8 +137,8 @@ const Product = () => {
                   </div>
               </div>
               <div className="button-cont">
-                <button className='delete-btn' onClick={() => deleteMenuClicked(index)}>Delete</button>
-                <button className="edit-btn" onClick={() => editMenuClicked(index)}>Edit</button>
+                <button className='delete-btn' onClick={() => deleteMenuClicked(item._id)}>Delete</button>
+                <button className="edit-btn" onClick={() => editMenuClicked(item._id)}>Edit</button>
               </div>
             </div>
           ))}

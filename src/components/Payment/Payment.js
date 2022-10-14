@@ -37,7 +37,6 @@ const Payment = () => {
       status: 'Waiting for Payment'
     }))
   }
-  console.table(orderDetail)
 
   const proceedButtonClicked = () => {
     console.log(userInfo)
@@ -53,6 +52,7 @@ const Payment = () => {
       total:orderDetail.totalAllPrice,
       status: userInfo.status,
       orderType: userInfo.orderType,
+      paymentPic:'Picture',
     }).then((response) => {
       console.log(response.status)
       console.log(response.data)
